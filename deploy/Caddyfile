@@ -1,0 +1,12 @@
+﻿# TLS termination + reverse proxy for local backend
+#
+# Usage:
+#   - Set SERVER_NAME to your domain (for example, api.example.com)
+#   - If SERVER_NAME=localhost, Caddy can issue local certs with `tls internal`
+#
+# Env var: SERVER_NAME (default localhost)
+
+{$SERVER_NAME:localhost} {
+	encode gzip
+	reverse_proxy 127.0.0.1:8000
+}
